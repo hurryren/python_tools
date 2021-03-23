@@ -28,7 +28,13 @@ def del_same(a:list,b:list):
             temp_a.append(a[i])
             temp_b.append(b[i])
 
-    temp_b = temp_b + b[len(a)::]
+
+
+    if len(a) > len(b):
+        temp_a += a[len(b)::]
+    if len(b) > len(a):
+        temp_b += b[len(a)::]
+
     return temp_a,temp_b
 
 def align(a:list,b:list):
@@ -98,7 +104,7 @@ def cal_result(a,b):
     cal_asf(a,b)
 
 if __name__ == "__main__":
-    # a,b = get_list(input[0])
+    a,b = get_list(input[0])
     print("test 0")
     a,b = get_list(test0)
     cal_result(a, b)
@@ -119,8 +125,9 @@ if __name__ == "__main__":
     for i in range(5):
         print("case: {}".format(i))
         a, b = get_list(input[i])
-        print("a: ", a)
-        print("b: ", b)
+        print("input a: ", a)
+        print("input b: ", b)
         cal_result(a, b)
         print()
+
 
